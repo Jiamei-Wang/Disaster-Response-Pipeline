@@ -32,9 +32,8 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:////home/workspace/data/DisasterResponse.db')
-# engine = create_engine('sqlite:///../data/DisasterResponse.db')
-# engine = create_engine('sqlite:///../DisasterResponse.db')
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+# engine = create_engine('sqlite:////home/workspace/data/DisasterResponse.db') #If running in Udacity Workspace
 df = pd.read_sql_table('DisasterResponseTable', engine)
 
 # load model
