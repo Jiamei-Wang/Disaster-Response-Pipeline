@@ -32,6 +32,9 @@ The purpose of the project is to build a model for an API that classifies disast
     * _run.py_: Flask file to run the web application that visualizes the results
     * _templates_: contains html file for the web applicatin
 
+3. **ETL/ ML Pipeline Preparation.jpynb **
+   * Development process of the ETL/ ML Pipeline.
+   
 ## Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
