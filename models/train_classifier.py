@@ -43,18 +43,19 @@ def tokenize(text):
     INPUT 
         text -- Original text   
     OUTPUT
-        Returns a processed text variable that was tokenized, lower cased,  stripped, and lemmatized
+        Returns a processed text variable 
     '''
-    tokens = word_tokenize(text)
-    lemmatizer = WordNetLemmatizer()
-
-    clean_tokens = []
-    for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
-        clean_tokens.append(clean_tok)
-
-    return clean_tokens
-
+    
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower()) #normalize text   
+    stop_words = stopwords.words("english") # stopword list
+    words = word_tokenize(text) #tokenize
+    stemmed = [PorterStemmer().stem(w) for w in words] #stemming
+    #lemmatizing
+    lemmatized_tokens = [WordNetLemmatizer().lemmatize(w) for w in 
+                    stemmed if w not in stop_words] 
+   
+    return lemmatized_tokens
+    
     
 def build_model():
     '''Build Machine Learning Pipeline
